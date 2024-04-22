@@ -1,5 +1,14 @@
+import { Course, Step, Teacher, Form } from "../components";
+
 const Home = () => {
-  return <h1>Home Page</h1>;
+  return (
+    <>
+      <Step />
+      <Course />
+      <Form />
+      <Teacher />
+    </>
+  );
 };
 
 export default Home;
