@@ -1,4 +1,5 @@
 import { StepImage } from "./step";
+import { ContactImage } from "./contact";
 import {
   HeroImage1,
   HeroImage2,
@@ -6,4 +7,11 @@ import {
   HeroBackgroundImage,
 } from "./hero";
 
-export { HeroBackgroundImage, StepImage, HeroImage1, HeroImage2, HeroImage3 };
+export {
+  StepImage,
+  HeroImage1,
+  HeroImage2,
+  HeroImage3,
+  ContactImage,
+  HeroBackgroundImage,
+};

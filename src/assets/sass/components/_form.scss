@@ -1,0 +1,117 @@
+$field-padding: 20px;
+
+.form {
+  padding: 45px 0px 80px 0px;
+  &__container {
+    @include flexLayout(flex, space-between, flex-start, 0px, row nowrap);
+  }
+  &__slider {
+    &-image {
+      height: 800px;
+      object-fit: cover;
+    }
+  }
+  &__box {
+    &:nth-child(1) {
+      max-width: 630px;
+      padding: 60px 100px;
+    }
+
+    &-title {
+      margin-bottom: 20px;
+      font-family: "Poppins";
+      letter-spacing: 0.12px;
+      @include headingFonts($nav__link-color, 48px, 600, 72px, none);
+      span {
+        color: $site-orange-color;
+      }
+    }
+  }
+
+  &-registration {
+    &__user {
+      margin-bottom: 20px;
+      &-label {
+        display: block;
+        margin-bottom: 10px;
+        font-family: "Poppins";
+        letter-spacing: 0.12px;
+        @include headingFonts($nav__link-color, 14px, 600, 21px, none);
+      }
+      &-text {
+        width: 100%;
+        border: none;
+        height: 100%;
+        resize: none;
+        outline: none;
+        height: 150px;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        letter-spacing: 0.12px;
+        background-color: transparent;
+        border: 1px solid rgba($nav__link-color, 0.5);
+        @include headingFonts($nav__link-color, 14px, 400, 21px, none);
+      }
+    }
+    &-send {
+      width: 100%;
+      border: none;
+      padding: 20px 0px;
+      border-radius: 10px;
+      letter-spacing: 0.12px;
+      transition: opacity 300ms linear;
+      background-color: $site-orange-color;
+      @include headingFonts($bg-dark, 18px, 600, 21.47px, none);
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    &__box {
+      position: relative;
+      padding: 20px 56px;
+      border-radius: 10px;
+      @include flexLayout();
+      border: 1px solid rgba($nav__link-color, 0.5);
+      svg {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: calc($field-padding - 10px);
+        left: 15px;
+      }
+      &-field {
+        top: 0;
+        left: 0;
+        width: 100%;
+        border: none;
+        height: 100%;
+        outline: none;
+        padding: 20px 56px;
+        position: absolute;
+        border-radius: 10px;
+        letter-spacing: 0.12px;
+        @include headingFonts($nav__link-color, 14px, 400, 21px, none);
+      }
+    }
+  }
+}
+
+.swiper {
+  height: 100%;
+  max-width: 675px;
+  margin-right: 0px;
+}
+
+.swiper-pagination-bullets {
+  margin-bottom: 25px;
+}
+
+.swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $site-orange-color;
+}
