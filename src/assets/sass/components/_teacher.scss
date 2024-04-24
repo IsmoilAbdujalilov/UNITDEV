@@ -1,0 +1,68 @@
+.teacher {
+  padding-bottom: 400px;
+  .bg-dark {
+    height: 415px;
+  }
+  &__content {
+    max-width: 445px;
+    padding: 30px 80px;
+    &-top-title {
+      margin-bottom: 8px;
+      display: inline-block;
+      letter-spacing: 0.2px;
+      font-family: "Montserrat";
+      @include headingFonts($site-orange-color, 14px, 700, 24px, none);
+    }
+    &-center-title {
+      margin-bottom: 8px;
+      letter-spacing: 0.2px;
+      font-family: "Montserrat";
+      @include headingFonts($nav__link-color, 40px, 700, 50px, none);
+    }
+    &-sub-text {
+      margin-bottom: 35px;
+      letter-spacing: 0.2px;
+      font-family: "Montserrat";
+      @include headingFonts($sub-text-color, 14px, 400, 20px, none);
+    }
+  }
+  &__cards {
+    gap: 30px;
+    display: grid;
+    padding: 0px 80px;
+    justify-content: space-between;
+    grid-template-columns: repeat(4, auto);
+  }
+  &__card {
+    width: 100%;
+    max-width: 238px;
+    border-radius: 25px;
+    background-color: $nav__link-color;
+    box-shadow: 0px 13px 19px 0px #00000012;
+    &-image {
+      height: 231px;
+      object-fit: cover;
+      border-radius: 25px 25px 0px 0px;
+    }
+  }
+
+  &__footer {
+    padding: 30px;
+    text-align: center;
+    &-title {
+      margin-bottom: 10px;
+      letter-spacing: 0.1px;
+      font-family: "Montserrat";
+      @include headingFonts($card__footer-text-color, 16px, 700, 24px, none);
+    }
+    &-job {
+      margin-bottom: 10px;
+      display: inline-block;
+      font-family: "Montserrat";
+      @include headingFonts($card__footer-job-color, 12px, 400, 16px, none);
+    }
+  }
+  &__medias-list {
+    @include flexLayout(flex, center, center, 20px, row nowrap);
+  }
+}
