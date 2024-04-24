@@ -1,20 +1,22 @@
 import Hero from "../Hero";
+import { Link } from "react-router-dom";
+import { UnitDevIntro } from "assets/images/svg";
 
 const Header = () => {
   return (
     <div className="bg-dark">
       <header className="header">
         <div className="header__container container">
-          <a className="header__link" href="index.html">
+          <Link className="header__link" to="/">
             <img
-              src="1"
               height="46"
               width="173"
               alt="UNITDEV logo"
+              src={UnitDevIntro}
               title="UNITDEV logo"
               className="header__link-intro"
             />
-          </a>
+          </Link>
           <nav className="nav">
             <ul className="nav__list">
               <li className="nav__item">

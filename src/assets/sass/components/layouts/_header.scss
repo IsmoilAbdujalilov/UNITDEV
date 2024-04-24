@@ -1,0 +1,19 @@
+.header {
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  width: 100%;
+  position: fixed;
+  padding: 30px 0px;
+  background-color: $bg-dark;
+  &__container {
+    @include flexLayout(flex, space-between, center, none, row nowrap);
+  }
+  &__link {
+    &-intro {
+      height: 46px;
+      width: 173px;
+      object-fit: cover;
+    }
+  }
+}
