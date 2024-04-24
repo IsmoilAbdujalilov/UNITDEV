@@ -1,4 +1,9 @@
-import { TeacherImage1, TeacherImage2, TeacherImage3, TeacherImage4 } from "assets/images/png";
+import {
+  TeacherImage1,
+  TeacherImage2,
+  TeacherImage3,
+  TeacherImage4,
+} from "assets/images/png";
 
 const Teacher = () => {
   return (

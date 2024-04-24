@@ -1,3 +1,5 @@
+import { UnitDevIntro } from "assets/images/svg";
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -5,16 +7,16 @@ const Footer = () => {
         <div className="footer-top">
           <a href="index.html">
             <img
-              src="1"
               height="46"
               width="173"
               alt="UNITDEV"
+              src={UnitDevIntro}
               title="UNITDEV logo"
               className="footer-top-intro"
             />
           </a>
           <div className="footer-top__contact">
-            <a href="tel:+22123-4567-900">
+            <a className="footer-top__phone" href="tel:+22123-4567-900">
               <span className="footer-top__bg-white">
                 <svg
                   width="24"
