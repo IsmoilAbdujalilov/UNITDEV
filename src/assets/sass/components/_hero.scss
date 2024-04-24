@@ -2,11 +2,11 @@
   padding-top: 115px;
   &__content {
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 845px;
     text-align: center;
     &-title {
-      font-family: "Poppins", sans-serif;
-      @include headingFonts($nav__link-color, 48px, 400, 72px, none);
+      font-family: "Poppins";
+      @include headingFonts($nav__link-color, 48px, 600, 72px, none);
       span {
         color: $site-orange-color;
       }
@@ -24,7 +24,7 @@
 
     &__list {
       height: 450px;
-      transform: translateY(160px);
+      transform: translateY(150px);
       @include flexLayout(flex, flex-end, flex-end, 23px, row nowrap);
     }
 

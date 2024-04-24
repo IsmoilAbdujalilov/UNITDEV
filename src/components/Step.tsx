@@ -1,14 +1,13 @@
+import { StepImage } from "assets/images/jpg";
+
 const Step = () => {
   return (
     <section className="step">
       <div className="step__container container">
-        <img
-          src="1"
-          width="525"
-          height="529"
-          alt="UNITDEV step image"
-          title="UNITDEV step image"
-        />
+        <div
+          className="step-image"
+          style={{ backgroundImage: `url(${StepImage})` }}
+        ></div>
         <div className="step__content">
           <h2 className="step__content-top-title">
             Biz bilan oldinga yana bir qadam

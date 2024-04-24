@@ -7,7 +7,7 @@
       position: relative;
       letter-spacing: 0.12px;
       transition: color 300ms linear;
-      font-family: "Poppins", sans-serif;
+      font-family: "Poppins";
 
       &::after {
         left: 0;
@@ -35,7 +35,6 @@
     &__item {
       &:hover svg path {
         fill: $site-orange-color;
-        transform: rotate(360deg);
       }
       svg {
         width: 25px;
@@ -43,7 +42,7 @@
 
         path {
           fill: $nav__link-color;
-          transition: fill 300ms linear, transform 300ms linear;
+          transition: fill 300ms linear;
         }
       }
     }

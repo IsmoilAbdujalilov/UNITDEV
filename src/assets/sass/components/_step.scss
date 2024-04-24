@@ -1,0 +1,70 @@
+$b: 40px;
+$blur: blur(9px);
+
+.step {
+  padding: 135px 0px 60px 0px;
+  &__container {
+    @include flexLayout(flex, flex-start, center, 50px, row nowrap);
+  }
+  &-image {
+    width: 525px;
+    height: 530px;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-clip: padding-box;
+    border: $b solid rgba($input__border-color, 0.2);
+
+    &:before {
+      position: absolute;
+      z-index: -1; /* put it *behind* parent */
+      /* go outside padding-box by 
+         * a border-width ($b) in every direction */
+      top: -$b - 2.5px;
+      right: -$b - 5px;
+      bottom: -$b - 5px;
+      left: -$b - 5px;
+      border: inherit;
+      border-color: transparent;
+      background: inherit;
+      background-clip: border-box;
+      /* -webkit-prefixed version 
+         * still needed for 
+         * some mobile browsers 💔😭 */
+      content: "";
+      filter: blur(4px);
+    }
+  }
+
+  &__content {
+    max-width: 637px;
+    &-top-title {
+      margin-bottom: 20px;
+      font-family: "Poppins";
+      @include headingFonts($bg-dark, 24px, 400, 36px, none);
+    }
+    &-center-title {
+      margin-bottom: 20px;
+      font-family: "Poppins";
+      @include headingFonts($bg-dark, 48px, 600, 72px, none);
+
+      span {
+        color: $site-orange-color;
+      }
+    }
+  }
+
+  &-texts {
+    &__item {
+      &:nth-child(1) {
+        margin-bottom: 20px;
+      }
+      &-text {
+        opacity: 0.5;
+        font-family: "Poppins";
+        @include headingFonts($bg-dark, 18px, 400, 27px, none);
+      }
+    }
+  }
+}

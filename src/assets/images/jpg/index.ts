@@ -1,3 +1,4 @@
+import { StepImage } from "./step";
 import {
   HeroImage1,
   HeroImage2,
@@ -5,4 +6,4 @@ import {
   HeroBackgroundImage,
 } from "./hero";
 
-export { HeroBackgroundImage, HeroImage1, HeroImage2, HeroImage3 };
+export { HeroBackgroundImage, StepImage, HeroImage1, HeroImage2, HeroImage3 };
