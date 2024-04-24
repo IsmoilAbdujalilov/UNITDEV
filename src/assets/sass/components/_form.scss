@@ -7,14 +7,14 @@ $field-padding: 20px;
   }
   &__slider {
     &-image {
-      height: 800px;
+      height: 767px;
       object-fit: cover;
     }
   }
   &__box {
     &:nth-child(1) {
       max-width: 630px;
-      padding: 60px 100px;
+      padding: 60px 80px;
     }
 
     &-title {
@@ -99,7 +99,7 @@ $field-padding: 20px;
 
 .swiper {
   height: 100%;
-  max-width: 675px;
+  max-width: 640px;
   margin-right: 0px;
 }
 
