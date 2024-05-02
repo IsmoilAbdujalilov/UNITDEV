@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { UnitDevFooterIntro } from "assets/images/svg";
 import {
   CourseImage1,
@@ -8,8 +8,6 @@ import {
 } from "assets/images/png";
 
 const Course = () => {
-  const navigate = useNavigate();
-
   return (
     <section className="course">
       <div className="bg-dark">
