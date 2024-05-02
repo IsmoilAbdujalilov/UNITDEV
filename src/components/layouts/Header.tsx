@@ -1,21 +1,9 @@
-import Hero from "../Hero";
-import { Link, useLocation } from "react-router-dom";
+import Hero from "components/Hero";
 import { UnitDevIntro } from "assets/images/svg";
+import { Link, Route, Routes } from "react-router-dom";
 import InformationBackground from "components/InformationBackground";
 
 const Header = () => {
-  const location = useLocation();
-
-  const conditionRenderComponent = () => {
-    if (location.pathname === "/") {
-      return <Hero />
-    } else {
-      return <InformationBackground />
-    }
-  }
-
-
-
   return (
     <div className="bg-dark">
       <header className="header">
@@ -132,7 +120,13 @@ const Header = () => {
         </div>
       </header>
 
-      {conditionRenderComponent()}
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route
+          path="/pages/information/:id"
+          element={<InformationBackground />}
+        />
+      </Routes>
     </div>
   );
 };

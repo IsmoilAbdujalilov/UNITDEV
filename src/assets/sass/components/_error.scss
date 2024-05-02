@@ -1,0 +1,16 @@
+.error {
+  &__background {
+    width: 100%;
+    min-height: 258px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    @include flexLayout(flex, center, center, none, row nowrap);
+  }
+
+  &-title {
+    text-align: center;
+    font-family: "Montserrat";
+    @include headingFonts($nav__link-color, 40px, 700, 45.8px, none);
+  }
+}

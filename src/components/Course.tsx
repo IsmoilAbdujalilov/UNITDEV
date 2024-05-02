@@ -1,3 +1,4 @@
+import { Link, useNavigate } from "react-router-dom";
 import { UnitDevFooterIntro } from "assets/images/svg";
 import {
   CourseImage1,
@@ -7,6 +8,8 @@ import {
 } from "assets/images/png";
 
 const Course = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="course">
       <div className="bg-dark">
@@ -48,13 +51,13 @@ const Course = () => {
                     </a>
                   </div>
 
-                  <a
-                    href="#"
+                  <Link
                     role="button"
+                    to="/pages/information/1"
                     className="course-box__footer-information"
                   >
                     Ma’lumot
-                  </a>
+                  </Link>
                 </footer>
               </div>
             </li>
@@ -82,13 +85,13 @@ const Course = () => {
                       />
                     </a>
                   </div>
-                  <a
-                    href="#"
+                  <Link
                     role="button"
+                    to="/pages/information/2"
                     className="course-box__footer-information"
                   >
                     Ma’lumot
-                  </a>
+                  </Link>
                 </footer>
               </div>
             </li>
@@ -117,13 +120,13 @@ const Course = () => {
                     </a>
                   </div>
 
-                  <a
-                    href="#"
+                  <Link
                     role="button"
+                    to="/pages/information/3"
                     className="course-box__footer-information"
                   >
                     Ma’lumot
-                  </a>
+                  </Link>
                 </footer>
               </div>
             </li>
@@ -150,13 +153,13 @@ const Course = () => {
                     </a>
                   </div>
 
-                  <a
-                    href="#"
+                  <Link
                     role="button"
+                    to="/pages/information/4"
                     className="course-box__footer-information"
                   >
                     Ma’lumot
-                  </a>
+                  </Link>
                 </footer>
               </div>
             </li>

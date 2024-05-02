@@ -4,6 +4,7 @@ import {
   HeroImage1,
   HeroImage2,
   HeroImage3,
+  ErrorBackground,
   HeroBackgroundImage,
 } from "./hero";
 
@@ -13,5 +14,6 @@ export {
   HeroImage2,
   HeroImage3,
   ContactImage,
+  ErrorBackground,
   HeroBackgroundImage,
 };
