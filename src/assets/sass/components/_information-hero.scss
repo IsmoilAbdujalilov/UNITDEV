@@ -1,7 +1,51 @@
 .information-hero {
-    min-height: 650px;
-    padding-top: 205px;
-    padding-bottom: 65px;
-    background-repeat: no-repeat;
-    background-position: top top;
+  min-height: 650px;
+  padding-top: 255px;
+  padding-bottom: 65px;
+  background-repeat: no-repeat;
+  background-position: top top;
+
+  &__content {
+    width: 100%;
+    max-width: 522px;
+    margin-bottom: 90px;
+    &-heading {
+      font-family: "Poppins";
+      @include headingFonts($site-orange-color, 64px, 700, 65px, uppercase);
+    }
+    &-text {
+      font-family: "Poppins";
+      @include headingFonts($nav__link-color, 16px, 500, 24px, none);
+    }
+  }
+
+  &__list {
+    margin-bottom: 35px;
+    @include flexLayout(flex, flex-start, center, 12px, row nowrap);
+  }
+
+  &__item {
+    @include flexLayout(flex, flex-start, center, 10px, row nowrap);
+    &-key {
+      display: inline-block;
+      font-family: "Poppins";
+      @include headingFonts($nav__link-color, 24px, 400, 32.74px, none);
+    }
+    &-value {
+      display: inline-block;
+      font-family: "Poppins";
+      @include headingFonts($site-orange-color, 24px, 400, 32.74px, none);
+    }
+  }
+
+  &-link {
+    padding: 14px 28px;
+    border-radius: 13px;
+    font-family: "Poppins";
+    @include headingFonts($nav__link-color, 18px, 600, 27px, none);
+    background-image: linear-gradient(270deg, #f48c06 0%, #ffc30d 100%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+  }
+
+  
 }

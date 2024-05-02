@@ -4,6 +4,17 @@ import Step from "./Step";
 import Course from "./Course";
 import Teacher from "./Teacher";
 import { Footer, Header } from "./layouts";
+import InformationConditions from "./InformationConditions";
 import InformationBackground from "./InformationBackground";
 
-export { Footer, Header, Hero, Step, Course, Form, Teacher, InformationBackground };
+export {
+  Hero,
+  Step,
+  Form,
+  Footer,
+  Header,
+  Course,
+  Teacher,
+  InformationConditions,
+  InformationBackground,
+};
