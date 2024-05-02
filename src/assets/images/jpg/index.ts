@@ -1,4 +1,5 @@
 import { StepImage } from "./step";
+import Carousel from "./Carausel.jpg";
 import { ContactImage } from "./contact";
 import {
   HeroImage1,
@@ -9,6 +10,7 @@ import {
 } from "./hero";
 
 export {
+  Carousel,
   StepImage,
   HeroImage1,
   HeroImage2,
