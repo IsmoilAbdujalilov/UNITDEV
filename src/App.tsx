@@ -10,15 +10,15 @@ const App = () => {
 
   return (
     <Suspense fallback={<Loader />}>
-      <Header />
+      {/* <Header /> */}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<Error />} />
-          <Route path="/pages/information/:id" element={<InformationAbout />} />
+          {/* <Route path="/pages/information/:id" element={<InformationAbout />} /> */}
         </Routes>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </Suspense>
   );
 };
