@@ -1,4 +1,4 @@
-import { Course, Step, Teacher, Form, Services, Projects } from "components";
+// import { Course, Step, Teacher, Form, Services, Projects } from "components";
 import Loader from "components/Loader";
 
 const Home = () => {
