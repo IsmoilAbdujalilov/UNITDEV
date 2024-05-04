@@ -1,16 +1,14 @@
-// import { Course, Step, Teacher, Form, Services, Projects } from "components";
-import Loader from "components/Loader";
+import { Course, Step, Teacher, Form, Services, Projects } from "components";
 
 const Home = () => {
   return (
     <>
-      <Loader />
-      {/* <Step />
+      <Step />
       <Course />
       <Form />
       <Teacher />
       <Services />
-      <Projects /> */}
+      <Projects />
     </>
   );
 };
