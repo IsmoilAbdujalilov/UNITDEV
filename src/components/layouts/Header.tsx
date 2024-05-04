@@ -1,9 +1,83 @@
 import Hero from "components/Hero";
-import { UnitDevIntro } from "assets/images/svg";
+import { Down, UnitDevIntro } from "assets/images/svg";
 import { Link, Route, Routes } from "react-router-dom";
+import { Language1, Language2 } from "assets/images/png";
 import InformationBackground from "components/InformationBackground";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const lang = localStorage.getItem("lang") || "uz";
+  const [language, setLanguage] = useState<string>(lang);
+  const [isOpenLanguageModal, setIsLanguageModal] = useState<boolean>(true);
+  const [languageData, setLanguageData] = useState<any>({
+    uz: {
+      lang: "uz",
+      img: Language2,
+    },
+    ru: {
+      lang: "ru",
+      img: Language1,
+    },
+  });
+
+  const openModal = () => {};
+
+  const changeLanguage = (lang: string) => {
+    if (lang === "uz") {
+      setLanguage("ru");
+      localStorage.setItem("lang", "ru");
+      setLanguageData({
+        ru: {
+          lang: "uz",
+          img: Language2,
+        },
+        uz: {
+          lang: "ru",
+          img: Language1,
+        },
+      });
+    } else {
+      setLanguage("uz");
+      localStorage.setItem("lang", "uz");
+      setLanguageData({
+        uz: {
+          lang: "uz",
+          img: Language2,
+        },
+        ru: {
+          lang: "ru",
+          img: Language1,
+        },
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (lang === "uz") {
+      setLanguageData({
+        ru: {
+          lang: "uz",
+          img: Language2,
+        },
+        uz: {
+          lang: "ru",
+          img: Language1,
+        },
+      });
+    } else {
+      setLanguageData({
+        uz: {
+          lang: "uz",
+          img: Language2,
+        },
+        ru: {
+          lang: "ru",
+          img: Language1,
+        },
+      });
+    }
+  }, [language]);
+
   return (
     <div className="bg-dark">
       <header className="header">
@@ -115,6 +189,55 @@ const Header = () => {
                   </defs>
                 </svg>
               </a>
+            </li>
+          </ul>
+
+          <ul className="nav-languages">
+            <li
+              onClick={() => setIsLanguageModal((prevState) => !prevState)}
+              className={`nav-language ${
+                isOpenLanguageModal && "nav-language--open"
+              }`}
+            >
+              <div className="nav-language__box">
+                <h3 className="nav-language__box-title">
+                  {languageData.uz.lang}
+                </h3>
+                <img
+                  alt="rus"
+                  width={30}
+                  height={30}
+                  src={languageData.uz.img}
+                  className="nav-language__box-image"
+                />
+                <img
+                  width={9}
+                  src={Down}
+                  height="5.63"
+                  alt="arrow-down"
+                  className="nav-language__box-icon"
+                />
+              </div>
+
+              <ul className="nav-language__options">
+                <li
+                  className="nav-language__option"
+                  onClick={() => changeLanguage(language)}
+                >
+                  <div className="nav-language__option-box">
+                    <h3 className="nav-language__option-box-title">
+                      {languageData.ru.lang}
+                    </h3>
+                    <img
+                      alt="rus"
+                      width={30}
+                      height={30}
+                      src={languageData.ru.img}
+                      className="nav-language__option-box-image"
+                    />
+                  </div>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>

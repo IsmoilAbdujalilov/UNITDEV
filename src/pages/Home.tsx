@@ -1,4 +1,4 @@
-import { Course, Step, Teacher, Form } from "../components";
+import { Course, Step, Teacher, Form, Services, Projects } from "components";
 
 const Home = () => {
   return (
@@ -7,6 +7,8 @@ const Home = () => {
       <Course />
       <Form />
       <Teacher />
+      <Services />
+      <Projects />
     </>
   );
 };

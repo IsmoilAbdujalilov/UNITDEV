@@ -6,8 +6,8 @@
     &-link {
       position: relative;
       letter-spacing: 0.12px;
-      transition: color 300ms linear;
       font-family: "Poppins";
+      transition: color 300ms linear;
 
       &::after {
         left: 0;
@@ -43,6 +43,79 @@
         path {
           fill: $nav__link-color;
           transition: fill 300ms linear;
+        }
+      }
+    }
+  }
+
+  &-language {
+    position: relative;
+    &__box {
+      gap: 8.5px;
+      display: flex;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      &-title {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 27.24px;
+        font-family: "Poppins";
+        color: $nav__link-color;
+      }
+      &-image {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      &-icon {
+        width: 9px;
+        height: 5.63px;
+        transition: transform 300ms linear;
+      }
+    }
+
+    &--open .nav-language__options {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 300ms linear, visibility 300ms linear;
+    }
+
+    &--open .nav-language__box-icon {
+      transform: rotate(180deg);
+      transition: transform 300ms linear;
+    }
+
+    &__options {
+      right: 0;
+      top: 40px;
+      position: absolute;
+      transition: opacity 300ms linear, visibility 300ms linear;
+    }
+    &__option {
+      background-color: $nav__link-color;
+
+      &-box {
+        gap: 8.5px;
+        display: flex;
+        padding: 9px 15px;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+
+        &-title {
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 27.24px;
+          font-family: "Poppins";
+          color: $our-result__bg-color;
+        }
+        &-image {
+          width: 30px;
+          height: 30px;
+          object-fit: cover;
+          border-radius: 50%;
         }
       }
     }
