@@ -20,8 +20,6 @@ const Header = () => {
     },
   });
 
-  const openModal = () => {};
-
   const changeLanguage = (lang: string) => {
     if (lang === "uz") {
       setLanguage("ru");
