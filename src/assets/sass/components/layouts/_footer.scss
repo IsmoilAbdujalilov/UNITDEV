@@ -58,23 +58,23 @@
         transition: color 300ms linear;
         @include headingFonts($nav__link-color, 14px, 400, 18px, none);
 
-        &::after {
-          left: 0;
-          width: 0%;
-          content: "";
-          height: 1px;
-          bottom: -5px;
-          position: absolute;
-          transition: width 300ms linear;
-          background-color: $site-orange-color;
-        }
+        // &::after {
+        //   left: 0;
+        //   width: 0%;
+        //   content: "";
+        //   height: 1px;
+        //   bottom: -5px;
+        //   position: absolute;
+        //   transition: width 300ms linear;
+        //   background-color: $site-orange-color;
+        // }
 
         &:hover {
           color: $site-orange-color;
 
-          &::after {
-            width: 100%;
-          }
+          // &::after {
+          //   width: 100%;
+          // }
         }
       }
     }
