@@ -35,7 +35,7 @@ const Footer = () => {
             </a>
             <ul className="footer-top__medias">
               <li className="footer-top__media">
-                <a href="#" target="_blank">
+                <a href="https://t.me/unitdev_uz" target="_blank">
                   <svg
                     width="25"
                     height="25"
@@ -53,7 +53,10 @@ const Footer = () => {
                 </a>
               </li>
               <li className="footer-top__media">
-                <a href="#" target="_blank">
+                <a
+                  target="_blank"
+                  href="https://www.instagram.com/unitdev.uz?igsh=MTBpMTFqNW1rMWtrag=="
+                >
                   <svg
                     width="25"
                     fill="none"

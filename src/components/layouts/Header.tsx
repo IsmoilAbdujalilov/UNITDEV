@@ -116,7 +116,7 @@ const Header = () => {
           </nav>
           <ul className="nav-medias">
             <li className="nav-medias__item">
-              <a href="#" target="_blank">
+              <a href="https://t.me/unitdev_uz" target="_blank">
                 <svg
                   width="25"
                   height="25"
@@ -134,7 +134,10 @@ const Header = () => {
               </a>
             </li>
             <li className="nav-medias__item">
-              <a href="#" target="_blank">
+              <a
+                target="_blank"
+                href="https://www.instagram.com/unitdev.uz?igsh=MTBpMTFqNW1rMWtrag=="
+              >
                 <svg
                   width="25"
                   fill="none"
