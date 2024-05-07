@@ -2,7 +2,7 @@ import { services1, services2, services3 } from "assets/images/svg";
 
 const Services = () => {
   return (
-    <section className="services">
+    <section className="services" id="services">
       <div className="container">
         <div className="services__content">
           <h2 className="services__content-title">

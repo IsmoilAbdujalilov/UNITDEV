@@ -9,7 +9,7 @@ import {
 
 const Course = () => {
   return (
-    <section className="course">
+    <section className="course" id="courses">
       <div className="bg-dark">
         <div className="course__container container">
           <h2 className="course-title">Kurslar</h2>

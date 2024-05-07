@@ -7,7 +7,7 @@ import {
 
 const Teacher = () => {
   return (
-    <section className="teacher">
+    <section className="teacher" id="teachers">
       <div className="bg-dark">
         <div className="teacher__container container">
           <div className="teacher__content">

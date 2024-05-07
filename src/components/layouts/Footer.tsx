@@ -2,7 +2,7 @@ import { UnitDevIntro } from "assets/images/svg";
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="footer" id="contacts">
       <div className="footer__container container">
         <div className="footer-top">
           <a href="index.html">

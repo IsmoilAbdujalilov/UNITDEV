@@ -93,22 +93,22 @@ const Header = () => {
           <nav className="nav">
             <ul className="nav__list">
               <li className="nav__item">
-                <a className="nav__item-link" href="#">
+                <a className="nav__item-link" href="#courses">
                   Kurslar haqida
                 </a>
               </li>
               <li className="nav__item">
-                <a className="nav__item-link" href="#">
+                <a className="nav__item-link" href="#teachers">
                   O’qituvchilar
                 </a>
               </li>
               <li className="nav__item">
-                <a className="nav__item-link" href="#">
+                <a className="nav__item-link" href="#services">
                   Bizning xizmatlar
                 </a>
               </li>
               <li className="nav__item">
-                <a className="nav__item-link" href="#">
+                <a className="nav__item-link" href="#contacts">
                   Kontaktlar
                 </a>
               </li>
