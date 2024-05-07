@@ -1,4 +1,5 @@
-import { services1, services2, services3 } from "assets/images/svg";
+import { services1, services2, services3, services4 } from "assets/images/svg";
+import { services5, services6, services7, services8, services9 } from "assets/images/svg/services";
 
 const Services = () => {
   return (
@@ -77,7 +78,7 @@ const Services = () => {
                 width={40}
                 height={40}
                 alt="web site"
-                src={services1}
+                src={services4}
                 className="services__square-icon"
               />
             </span>
@@ -96,7 +97,7 @@ const Services = () => {
                 width={40}
                 height={40}
                 alt="web site"
-                src={services2}
+                src={services5}
                 className="services__square-icon"
               />
             </span>
@@ -115,7 +116,7 @@ const Services = () => {
                 width={40}
                 height={40}
                 alt="web site"
-                src={services3}
+                src={services6}
                 className="services__square-icon"
               />
             </span>
@@ -134,7 +135,7 @@ const Services = () => {
                 width={40}
                 height={40}
                 alt="web site"
-                src={services1}
+                src={services7}
                 className="services__square-icon"
               />
             </span>
@@ -151,7 +152,7 @@ const Services = () => {
                 width={40}
                 height={40}
                 alt="web site"
-                src={services2}
+                src={services8}
                 className="services__square-icon"
               />
             </span>
@@ -170,7 +171,7 @@ const Services = () => {
                 width={40}
                 height={40}
                 alt="web site"
-                src={services3}
+                src={services9}
                 className="services__square-icon"
               />
             </span>
