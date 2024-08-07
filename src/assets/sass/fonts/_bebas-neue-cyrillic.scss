@@ -1,4 +1,4 @@
 @font-face {
-  font-family: "Bebas Neue Cyrillic";
+  @include bebas;
   src: url("../../fonts/bebas-neue-cyrillic/BebasNeue-Bold.otf");
 }

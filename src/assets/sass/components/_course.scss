@@ -5,41 +5,39 @@
   }
 
   &-title {
+    @include poppins();
     margin-bottom: 20px;
-    font-family: "Poppins";
     @include headingFonts($nav__link-color, 40px, 600, 60px, none);
+
+    @include sm {
+      font-size: 30px;
+    }
   }
+
   &-boxes {
     gap: 20px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    height: 648px;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include defaultMediaQuery(650px) {
+      height: 500px;
+    }
+
+    @include sm {
+      height: 400px;
+    }
   }
   &-box {
+    display: grid;
     position: relative;
     border-radius: 20px;
-    @include flexLayout(flex, flex-start, flex-end, none, row nowrap);
+    align-items: flex-end;
     width: 100%;
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: left left;
-    &:nth-child(1) {
-      height: 618px;
-      grid-row: 1/4;
-      grid-column: 1/3;
-    }
-    &:nth-child(2) {
-      grid-row: 1/2;
-      grid-column: 3/4;
-    }
-    &:nth-child(3) {
-      grid-row: 1/2;
-      grid-column: 4/5;
-    }
-    &:nth-child(4) {
-      grid-row: 2/4;
-      grid-column: 3/5;
-    }
 
     &::after {
       bottom: 0;
@@ -57,111 +55,98 @@
 
     &__padding {
       padding: 20px;
+      @include sm {
+        padding: 10px;
+      }
     }
 
     &__content {
       z-index: 1;
 
       &-format {
+        @include bebas;
         padding: 10px 20px;
         letter-spacing: -1px;
         border-radius: 0px 10px 10px 0px;
-        font-family: "Bebas Neue Cyrillic", sans-serif;
         @include headingFonts($nav__link-color, 24px, 400, 24px, uppercase);
         background: linear-gradient(270deg, #ff6767 0%, #ffc30d 100%),
           linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+
+        @include defaultMediaQuery(650px) {
+          font-size: 18px;
+        }
+
+        @include sm {
+          font-size: 14px;
+          display: inline-block;
+        }
       }
 
       &-title {
         margin-bottom: 5px;
-        font-family: "Montserrat";
+        @include montserrant;
         @include headingFonts($nav__link-color, 45px, 700, 54.86px, uppercase);
+        @include defaultMediaQuery(650px) {
+          font-size: 35px;
+        }
+
+        @include sm {
+          font-size: 28px;
+        }
       }
 
       &-regular-title {
         margin-bottom: 16px;
-        font-family: "Montserrat";
+        @include montserrant;
         @include headingFonts($nav__link-color, 25px, 400, 30.48px, uppercase);
+        @include defaultMediaQuery(650px) {
+          font-size: 20px;
+        }
+
+        @include sm {
+          font-size: 18px;
+        }
       }
 
       &-text {
-        font-family: "Poppins";
+        @include poppins;
         @include headingFonts($nav__link-color, 14px, 400, 21px, none);
-      }
-    }
-
-    &:nth-child(2) {
-      .course-box__content-format {
-        font-size: 13px;
-        padding: 5px 10px;
-      }
-      .course-box__content-title {
-        font-size: 23px;
-        margin-top: 10px;
-      }
-      .course-box__footer-information {
-        font-size: 14px;
-        padding: 10px 30px;
-      }
-      .course-box__footer-logo {
-        width: 75px;
-        height: 20px;
-      }
-      .course-box-small-padding {
-        padding: 10px;
-      }
-      .course-box__footer {
-        gap: 100px;
-      }
-    }
-    &:nth-child(3) {
-      .course-box__content-format {
-        font-size: 13px;
-        padding: 5px 10px;
-        margin-bottom: 20px;
-      }
-      .course-box__content-title {
-        font-size: 23px;
-        margin-top: 10px;
-      }
-      .course-box__footer-information {
-        font-size: 14px;
-        padding: 10px 30px;
-      }
-      .course-box__footer-logo {
-        width: 75px;
-        height: 20px;
-      }
-      .course-box-small-padding {
-        padding: 10px;
-      }
-      .course-box__footer {
-        gap: 100px;
-      }
-    }
-
-    &:nth-child(4) {
-      .course-box__footer {
-        gap: 241px;
+        @include defaultMediaQuery(650px) {
+          font-size: 12px;
+        }
       }
     }
 
     &__footer {
       @include flexLayout(flex, space-between, flex-end, none, row nowrap);
+      width: 100%;
       &-logo {
         height: 36px;
         width: 135px;
         object-fit: cover;
+
+        @include sm {
+          height: 100%;
+          width: 100px;
+        }
       }
 
       &-information {
+        @include bebas;
         padding: 16px 32px;
         letter-spacing: -1px;
         border-radius: 10px 0px 10px 0px;
-        font-family: "Bebas Neue Cyrillic", sans-serif;
         @include headingFonts($nav__link-color, 36px, 400, 36px, uppercase);
         background: linear-gradient(270deg, #ffe601 0%, #f48c06 100%),
           linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+        @include defaultMediaQuery(650px) {
+          font-size: 25px;
+        }
+
+        @include sm {
+          font-size: 18px;
+          padding: 12px 28px;
+        }
       }
     }
   }

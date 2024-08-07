@@ -4,7 +4,7 @@ const OurResult = () => {
   return (
     <section className="our-result">
       <div className="our-result__container container">
-        <div className="our-result__box">
+        <div className="our-result__box" data-aos="fade-up">
           <div className="our-result__content">
             <h2 className="our-result__content-title">
               Bizning <span>natijalarimiz</span> raqamlar ko’rinishida
@@ -36,6 +36,8 @@ const OurResult = () => {
           width={635}
           height={423}
           src={Carousel}
+          loading="lazy"
+          data-aos="fade-up"
           alt="indicator image"
           title="indicator image"
           className="our-result-image"

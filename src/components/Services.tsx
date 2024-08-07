@@ -1,189 +1,83 @@
-import { services1, services2, services3, services4 } from "assets/images/svg";
-import { services5, services6, services7, services8, services9 } from "assets/images/svg/services";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { languageJsxTypes, languageTypes } from "typescript/types";
 
 const Services = () => {
+  const lang = useSelector(({ language }: { language: string }) => language);
+
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    fetch("https://api.unitdev.uz/api/services")
+      .then((res) => res.json())
+      .then((data) => setServices(data.data));
+  }, []);
+
+  const service: languageJsxTypes = {
+    uz: (
+      <h2 className="services__content-title">
+        Bizning <span>UnitDev</span> jamoamiz xizmatlari
+      </h2>
+    ),
+    ru: (
+      <h2 className="services__content-title">
+        Услуги нашей команды <span>UnitDev</span>
+      </h2>
+    ),
+    en: (
+      <h2 className="services__content-title">
+        Services of our <span>UnitDev</span> team
+      </h2>
+    ),
+  };
+
+  const serviceTex: languageTypes = {
+    uz: `Vazifani bajarish uchun siz uni o'rganishingiz va juda katta tajriba 
+    yo'lidan o'tishingiz kerak. Mana, biz professional va tez hal qila oladigan
+    vazifalar`,
+    en: `To complete the task, you need to learn it and have a lot of experience 
+    you have to pass through. Here we are professional and quick to solve
+    tasks`,
+    ru: `
+    Чтобы выполнить задание, вам нужно этому научиться и иметь большой опыт.
+    Вам придется пройти обучение. Здесь мы профессионально и быстро решаем задачи.
+    `,
+  };
+
+  type servicesTypes = {
+    id: number;
+    image_path: string;
+    name: languageTypes;
+    description: languageTypes;
+  };
+
   return (
     <section className="services" id="services">
       <div className="container">
-        <div className="services__content">
-          <h2 className="services__content-title">
-            Bizning <span>UnitDev</span> jamoamiz xizmatlari
-          </h2>
-          <p className="services__content-text">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's
-          </p>
+        <div className="services__content" data-aos="zoom-in">
+          {service[lang]}
+          <p className="services__content-text">{serviceTex[lang]}</p>
         </div>
         <ul className="services__list">
-          <li className="services__item">
-            <span className="services__square">
-              <img
-                width={40}
-                height={40}
-                alt="web site"
-                src={services1}
-                className="services__square-icon"
-              />
-            </span>
-            <h3 className="services__item-title">
-              Web saytlarni ishlab chiqish
-            </h3>
-            <p className="services__item-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since.
-            </p>
-          </li>
-          <li className="services__item">
-            <span className="services__square">
-              <img
-                width={40}
-                height={40}
-                alt="web site"
-                src={services2}
-                className="services__square-icon"
-              />
-            </span>
-            <h3 className="services__item-title">
-              Biznes jarayonlar auditi va UX tahlili
-            </h3>
-            <p className="services__item-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since.
-            </p>
-          </li>
-          <li className="services__item">
-            <span className="services__square">
-              <img
-                width={40}
-                height={40}
-                alt="web site"
-                src={services3}
-                className="services__square-icon"
-              />
-            </span>
-            <h3 className="services__item-title">
-              Mobil ilovalar va web interfeyslar dizayni
-            </h3>
-            <p className="services__item-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since.
-            </p>
-          </li>
-          <li className="services__item">
-            <span className="services__square">
-              <img
-                width={40}
-                height={40}
-                alt="web site"
-                src={services4}
-                className="services__square-icon"
-              />
-            </span>
-            <h3 className="services__item-title">
-              Loyihalashtirish va tizimlashtirilgan tahlil
-            </h3>
-            <p className="services__item-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since.
-            </p>
-          </li>
-          <li className="services__item">
-            <span className="services__square">
-              <img
-                width={40}
-                height={40}
-                alt="web site"
-                src={services5}
-                className="services__square-icon"
-              />
-            </span>
-            <h3 className="services__item-title">
-              Biznes jarayonlar avtomatizatsiyasi uchun ERP, CRM tizimlar
-            </h3>
-            <p className="services__item-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since.
-            </p>
-          </li>
-          <li className="services__item">
-            <span className="services__square">
-              <img
-                width={40}
-                height={40}
-                alt="web site"
-                src={services6}
-                className="services__square-icon"
-              />
-            </span>
-            <h3 className="services__item-title">
-              Media platformalar yaratish
-            </h3>
-            <p className="services__item-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since.
-            </p>
-          </li>
-          <li className="services__item">
-            <span className="services__square">
-              <img
-                width={40}
-                height={40}
-                alt="web site"
-                src={services7}
-                className="services__square-icon"
-              />
-            </span>
-            <h3 className="services__item-title">Mobil ilovalar yaratish</h3>
-            <p className="services__item-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since.
-            </p>
-          </li>
-          <li className="services__item">
-            <span className="services__square">
-              <img
-                width={40}
-                height={40}
-                alt="web site"
-                src={services8}
-                className="services__square-icon"
-              />
-            </span>
-            <h3 className="services__item-title">
-              Analitika va modernizatsiyalash
-            </h3>
-            <p className="services__item-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since.
-            </p>
-          </li>
-          <li className="services__item">
-            <span className="services__square">
-              <img
-                width={40}
-                height={40}
-                alt="web site"
-                src={services9}
-                className="services__square-icon"
-              />
-            </span>
-            <h3 className="services__item-title">
-              Korporativ portallarni ishlab chiqish
-            </h3>
-            <p className="services__item-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since.
-            </p>
-          </li>
+          {services.length > 0 &&
+            services.map((el: servicesTypes) => {
+              return (
+                <li className="services__item" data-aos="zoom-in" key={el.id}>
+                  <span className="services__square">
+                    <img
+                      width={40}
+                      height={40}
+                      loading="lazy"
+                      alt="web site"
+                      src={`https://api.unitdev.uz${el.image_path}`}
+                      className="services__square-icon"
+                    />
+                  </span>
+                  <h3 className="services__item-title">{el.name[lang]}</h3>
+                  <p className="services__item-text">{el.description[lang]}</p>
+                </li>
+              );
+            })}
         </ul>
       </div>
     </section>

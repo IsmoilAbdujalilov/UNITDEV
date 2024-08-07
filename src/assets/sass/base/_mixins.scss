@@ -1,16 +1,35 @@
 // Flexbox Layout
 @mixin flexLayout(
   $flex: flex,
-  $jc: default,
-  $ai: default,
-  $gap: default,
+  $jc: flex-start,
+  $ai: flex-start,
+  $gap: 0px,
   $flexFlow: nowrap row
 ) {
-  gap: $gap;
-  display: $flex;
+  display: flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+
   align-items: $ai;
+  -ms-flex-align: $ai;
+  -moz-box-align: $ai;
+  -webkit-box-align: $ai;
+  -webkit-align-items: $ai;
+
+  -ms-flex-pack: $jc;
+  -moz-box-pack: $jc;
   justify-content: $jc;
+  -webkit-box-pack: $jc;
+  -webkit-justify-content: $jc;
+
   flex-flow: $flexFlow;
+  -ms-flex-flow: $flexFlow;
+  -webkit-flex-flow: $flexFlow;
+
+  gap: $gap;
+  -webkit-gap: $gap;
 }
 
 // Grid Layout
@@ -22,12 +41,20 @@
   $gap: default
 ) {
   gap: $gap;
+  -moz-gap: $gap;
+  -webkit-gap: $gap;
+
   display: $grid;
+  display: -ms-grid;
+
   align-items: $ai;
   justify-content: $jc;
+
   @if $gridTemplateCol > 1 {
+    -ms-grid-column: repeat($gridTemplateCol, auto);
     grid-template-columns: repeat($gridTemplateCol, auto);
   } @else {
+    -ms-grid-column: auto;
     grid-template-columns: auto;
   }
 }
@@ -46,7 +73,11 @@
   border: $border;
   text-indent: $textIndent;
   background-color: $bgColor;
+
+  -webkit-border-radius: $borderRadius;
+  -moz-border-radius: $borderRadius;
   border-radius: $borderRadius;
+
   &::placeholder {
     color: $placeholderColor;
   }
@@ -64,9 +95,16 @@
   outline: none;
   border: $border;
   padding: $padding;
-  transition: $transition;
   background-color: $bgColor;
+
   border-radius: $borderRadius;
+  -moz-border-radius: $borderRadius;
+  -webkit-border-radius: $borderRadius;
+
+  transition: $transition;
+  -o-transition: $transition;
+  -moz-transition: $transition;
+  -webkit-transition: $transition;
 }
 
 // Heading Fonts
@@ -81,9 +119,11 @@
   color: $color;
   margin: 0 default;
   font-size: $fontSize;
-  line-height: lineHeight;
+  line-height: $lineHeight;
   font-weight: $fontWeight;
   text-transform: $textTransform;
+  -ms-text-transform: $textTransform;
+  -webkit-text-transform: $textTransform;
 }
 
 // Background Image
@@ -95,9 +135,46 @@
   $bgPosition: center center
 ) {
   background-size: $bgSize;
+  -o-background-size: $bgSize;
+  -moz-background-size: $bgSize;
+  -webkit-background-size: $bgSize;
+
   background-repeat: $bgRepeat;
+  -o-background-repeat: $bgRepeat;
+  -moz-background-repeat: $bgRepeat;
+  -webkit-background-repeat: $bgRepeat;
+
   background-image: url($bgImage);
+  -o-background-image: url($bgImage);
+  -moz-background-image: url($bgImage);
+  -webkit-background-image: url($bgImage);
+
   background-position: $bgPosition;
+  -o-background-position: $bgPosition;
+  -moz-background-position: $bgPosition;
+  -webkit-background-position: $bgPosition;
+}
+
+// Font Families
+
+@mixin montserrant {
+  font-family: "Montserrat";
+}
+
+@mixin lato {
+  font-family: "Lato", sans-serif;
+}
+
+@mixin gilroy {
+  font-family: "Gilroy", sans-serif;
+}
+
+@mixin poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+@mixin bebas {
+  font-family: "Bebas Neue Cyrillic", sans-serif;
 }
 
 // Media Queries

@@ -6,23 +6,47 @@
     max-width: 600px;
     text-align: center;
     margin-bottom: 60px;
+
+    @include md {
+      margin-bottom: 30px;
+    }
     &-title {
       font-size: 48px;
       font-weight: 600;
       color: #0b0b0b;
+      @include poppins;
       line-height: 72px;
       margin-bottom: 10px;
       letter-spacing: 0.12px;
-      font-family: "Poppins";
+
+      @include md {
+        font-size: 35px;
+        line-height: 50px;
+      }
+
+      @include sm {
+        font-size: 28px;
+        line-height: 40px;
+      }
     }
 
     &-text {
       font-size: 18px;
       font-weight: 400;
+      @include poppins;
       line-height: 45px;
-      font-family: "Poppins";
       letter-spacing: 0.12px;
       color: $swiper-bullet-color;
+
+      @include md {
+        font-size: 16px;
+        line-height: 35px;
+      }
+
+      @include sm {
+        font-size: 12px;
+        line-height: 25px;
+      }
     }
   }
 
@@ -30,6 +54,14 @@
     gap: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+
+    @include defaultMediaQuery(1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include sm {
+      grid-template-columns: auto;
+    }
   }
 
   &__item {
@@ -39,6 +71,10 @@
     position: relative;
     flex-direction: column;
     justify-content: flex-end;
+
+    @include md {
+      height: 350px;
+    }
 
     &-image {
       position: absolute;
@@ -57,6 +93,11 @@
       justify-content: space-between;
     }
 
+    @include sm {
+      margin: 10px;
+      padding: 10px;
+    }
+
     &__item {
       &-key {
         font-size: 10px;
@@ -65,15 +106,17 @@
         color: #ffffff80;
         font-style: italic;
         letter-spacing: 0.12px;
-        font-family: "Poppins";
       }
       &-value {
         font-size: 18px;
         font-weight: 600;
         color: #ffffff;
+        @include poppins;
         line-height: 27px;
         letter-spacing: 0.12px;
-        font-family: "Poppins";
+        @include sm {
+          font-size: 15px;
+        }
       }
     }
   }

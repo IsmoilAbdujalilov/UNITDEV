@@ -1,63 +1,66 @@
-import {
-  HeroBackgroundImage,
-  HeroImage1,
-  HeroImage2,
-  HeroImage3,
-} from "assets/images/jpg";
 import { memo } from "react";
+import { useSelector } from "react-redux";
+import { Autoplay } from "swiper/modules";
+import { SwiperSlide, Swiper } from "swiper/react";
+import { HeroBackgroundImage, HeroImage2, HeroImage3 } from "assets/images/jpg";
+import { languageJsxTypes } from "typescript/types";
 
 const Hero = memo(() => {
+  const lang: string = useSelector(
+    ({ language }: { language: string }) => language
+  );
+
+  const heroData: languageJsxTypes = {
+    uz: (
+      <h2 className="hero__content-title">
+        Kelajagingizni <span>UnitDev</span> bilan yarating!
+      </h2>
+    ),
+    en: (
+      <h2 className="hero__content-title">
+        Create your own future with <span>Unitdev</span>!
+      </h2>
+    ),
+    ru: (
+      <h2 className="hero__content-title">
+        Создайте своё будущее с помощью <span>Unitdev</span>!
+      </h2>
+    ),
+  };
+
   return (
     <section className="hero">
       <h1 className="visually-hidden">UNITDEV</h1>
-      <div className="hero__container">
+      <div className="hero__container" data-aos="zoom-in">
         <div className="hero__content">
-          <div className="container">
-            <h2 className="hero__content-title">
-              Kelajagingizni <span>UnitDev</span> bilan yarating!
-            </h2>
-          </div>
+          <div className="container">{heroData[lang]}</div>
         </div>
         <div className="hero-galeries">
-          <div
-            className="hero-galeries-image"
-            style={{ backgroundImage: `url(${HeroBackgroundImage})` }}
+          <Swiper
+            loop
+            slidesPerView={1}
+            modules={[Autoplay]}
+            autoplay={{ delay: 5000 }}
           >
-            <div className="container">
-              <ul className="hero-galeries__list">
-                <li className="hero-galeries__item">
-                  <img
-                    width="198"
-                    height="198"
-                    src={HeroImage1}
-                    alt="UNITDEV galery image"
-                    title="UNITDEV galery image"
-                    className="hero-galeries__item-img"
-                  />
-                </li>
-                <li className="hero-galeries__item">
-                  <img
-                    width="198"
-                    height="198"
-                    src={HeroImage2}
-                    alt="UNITDEV galery image"
-                    title="UNITDEV galery image"
-                    className="hero-galeries__item-img"
-                  />
-                </li>
-                <li className="hero-galeries__item">
-                  <img
-                    width="198"
-                    height="198"
-                    src={HeroImage3}
-                    alt="UNITDEV galery image"
-                    title="UNITDEV galery image"
-                    className="hero-galeries__item-img"
-                  />
-                </li>
-              </ul>
-            </div>
-          </div>
+            <SwiperSlide>
+              <li
+                className="hero-galeries-image"
+                style={{ backgroundImage: `url(${HeroBackgroundImage})` }}
+              ></li>
+            </SwiperSlide>
+            <SwiperSlide>
+              <li
+                className="hero-galeries-image"
+                style={{ backgroundImage: `url(${HeroImage2})` }}
+              ></li>
+            </SwiperSlide>
+            <SwiperSlide>
+              <li
+                className="hero-galeries-image"
+                style={{ backgroundImage: `url(${HeroImage3})` }}
+              ></li>
+            </SwiperSlide>
+          </Swiper>
         </div>
       </div>
     </section>

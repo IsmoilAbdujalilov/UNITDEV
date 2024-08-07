@@ -1,8 +1,30 @@
+import { useSelector } from "react-redux";
 import { UnitDevIntro } from "assets/images/svg";
+import { languageTypes } from "typescript/types";
 
 const Footer = () => {
+  const lang = useSelector(({ language }: { language: string }) => language);
+
+  const help: languageTypes = {
+    uz: "Tezkor yordam",
+    en: "Urgent care",
+    ru: "Неотложная помощь",
+  };
+
+  const question: languageTypes = {
+    uz: "Savol berish",
+    en: "Ask a question",
+    ru: "Задайте вопрос",
+  };
+
+  const info: languageTypes = {
+    uz: "Ma'lumot",
+    en: "Information",
+    ru: "Информация",
+  };
+
   return (
-    <footer className="footer" id="contacts">
+    <footer className="footer">
       <div className="footer__container container">
         <div className="footer-top">
           <a href="index.html">
@@ -10,13 +32,14 @@ const Footer = () => {
               height="46"
               width="173"
               alt="UNITDEV"
+              loading="lazy"
               src={UnitDevIntro}
               title="UNITDEV logo"
               className="footer-top-intro"
             />
           </a>
           <div className="footer-top__contact">
-            <a className="footer-top__phone" href="tel:+22123-4567-900">
+            <a className="footer-top__phone" href="tel:+998930006781">
               <span className="footer-top__bg-white">
                 <svg
                   width="24"
@@ -31,9 +54,33 @@ const Footer = () => {
                   />
                 </svg>
               </span>
-              (+22) 123 - 4567 - 900
+              +998 93 000 67 81
             </a>
-            <ul className="footer-top__medias">
+
+            <a
+              target="_blank"
+              className="footer-top__phone"
+              href="https://t.me/unitdevadmin"
+            >
+              <span className="footer-top__bg-white">
+                <svg
+                  width="25"
+                  height="25"
+                  fill="none"
+                  viewBox="0 0 25 25"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill="#F4A850"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M20.8248 4.12314C21.083 4.01411 21.3656 3.9765 21.6432 4.01424C21.9208 4.05198 22.1832 4.16368 22.4032 4.33772C22.6232 4.51177 22.7926 4.74178 22.8939 5.00384C22.9952 5.26589 23.0247 5.5504 22.9792 5.82775L20.6095 20.2498C20.3797 21.6409 18.8584 22.4387 17.5868 21.7458C16.5232 21.166 14.9434 20.2728 13.5224 19.3409C12.8119 18.8744 10.6355 17.3805 10.903 16.3175C11.1328 15.4085 14.7898 11.993 16.8794 9.96241C17.6996 9.16462 17.3256 8.7044 16.357 9.43824C13.9508 11.2603 10.0901 14.031 8.81328 14.811C7.68694 15.4987 7.09974 15.6161 6.39761 15.4987C5.11664 15.2848 3.92866 14.9536 2.95905 14.55C1.64882 14.0048 1.71255 12.1975 2.958 11.6712L20.8248 4.12314Z"
+                  />
+                </svg>
+              </span>
+              {help[lang]}
+            </a>
+            {/* <ul className="footer-top__medias">
               <li className="footer-top__media">
                 <a href="https://t.me/unitdev_uz" target="_blank">
                   <svg
@@ -45,8 +92,8 @@ const Footer = () => {
                   >
                     <path
                       fill="#FFFFFF"
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M20.8248 4.12314C21.083 4.01411 21.3656 3.9765 21.6432 4.01424C21.9208 4.05198 22.1832 4.16368 22.4032 4.33772C22.6232 4.51177 22.7926 4.74178 22.8939 5.00384C22.9952 5.26589 23.0247 5.5504 22.9792 5.82775L20.6095 20.2498C20.3797 21.6409 18.8584 22.4387 17.5868 21.7458C16.5232 21.166 14.9434 20.2728 13.5224 19.3409C12.8119 18.8744 10.6355 17.3805 10.903 16.3175C11.1328 15.4085 14.7898 11.993 16.8794 9.96241C17.6996 9.16462 17.3256 8.7044 16.357 9.43824C13.9508 11.2603 10.0901 14.031 8.81328 14.811C7.68694 15.4987 7.09974 15.6161 6.39761 15.4987C5.11664 15.2848 3.92866 14.9536 2.95905 14.55C1.64882 14.0048 1.71255 12.1975 2.958 11.6712L20.8248 4.12314Z"
                     />
                   </svg>
@@ -72,7 +119,7 @@ const Footer = () => {
                 </a>
               </li>
               <li className="footer-top__media">
-                <a href="#" target="_blank">
+                <a href="https://www.youtube.com/@unitdev_uz" target="_blank">
                   <svg
                     width="25"
                     fill="none"
@@ -88,7 +135,10 @@ const Footer = () => {
                 </a>
               </li>
               <li className="footer-top__media">
-                <a href="#" target="_blank">
+                <a
+                  href="https://www.facebook.com/people/Unitdev-UZ/pfbid0kjSqYU5Jkzmqr4YwM64CU4tceRrpEZNPHbYpk6CUhSLe5jgU45nfnvdw4yUyjAp9l/?mibextid=ZbWKwL"
+                  target="_blank"
+                >
                   <svg
                     width="25"
                     height="25"
@@ -110,23 +160,19 @@ const Footer = () => {
                   </svg>
                 </a>
               </li>
-            </ul>
+            </ul> */}
           </div>
         </div>
         <div className="footer-bottom">
-          <h2 className="footer-bottom-word">© 2024, Unitdev.uz</h2>
+          <h2 className="footer-bottom-word">
+            © {new Date().getFullYear()}, Unitdev.uz
+          </h2>
           <ul className="footer-bottom__links">
             <li className="footer-bottom__link">
-              <a target="_blank" href="#">
-                {" "}
-                Savol berish{" "}
-              </a>
+              <a href="#contacts"> {question[lang]} </a>
             </li>
             <li className="footer-bottom__link">
-              <a target="_blank" href="#">
-                {" "}
-                Ma’lumot{" "}
-              </a>
+              <a href="#about"> {info[lang]} </a>
             </li>
           </ul>
         </div>

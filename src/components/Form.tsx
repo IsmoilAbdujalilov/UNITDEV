@@ -1,23 +1,127 @@
+import { useSelector } from "react-redux";
+import "react-phone-input-2/lib/style.css";
+import PhoneInput from "react-phone-input-2";
+import { ChangeEvent, useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
 import { ContactImage } from "assets/images/jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
+import { toast, ToastContainer } from "react-toastify";
+import { languageJsxTypes, languageTypes } from "typescript/types";
 
 const Form = () => {
+  const lang: string = useSelector(
+    ({ language }: { language: string }) => language
+  );
+  const [userName, setUserName] = useState<string>("");
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
+  const [userMessage, setUserMessage] = useState<string>("");
+
+  const postFormData = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = {
+      name: userName,
+      phone_number: phoneNumber,
+      description: userMessage,
+    };
+
+    fetch("https://api.unitdev.uz/api/leads/store", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.ok) {
+          toast.success("Ma'lumotlaringiz adminga yuborildi", {
+            autoClose: 3000,
+            pauseOnHover: false,
+          });
+
+          setUserName("");
+          setPhoneNumber("");
+          setUserMessage("");
+        }
+      })
+      .catch(() => {
+        toast.error("Serverda xatolik bor", {
+          autoClose: 3000,
+          pauseOnHover: false,
+        });
+      });
+  };
+
+  const titleData: languageJsxTypes = {
+    uz: (
+      <h2 className="form__box-title">
+        <span>Biz bilan</span> bog’lanish uchun
+      </h2>
+    ),
+    ru: (
+      <h2 className="form__box-title">
+        Связаться <span>с нами</span>
+      </h2>
+    ),
+    en: (
+      <h2 className="form__box-title">
+        <span>With us</span> to connect
+      </h2>
+    ),
+  };
+
+  const nameAndSureName: languageTypes = {
+    ru: "Имя и фамилия",
+    uz: "Ism va Familiya",
+    en: "Name and Surename",
+  };
+
+  const enterName: languageTypes = {
+    ru: "Введите ваше имя и фамилия",
+    en: "Enter your name and lastname",
+    uz: "Ismingizni va familiyangizni kiriting",
+  };
+
+  const phone: languageTypes = {
+    uz: "Telefon raqam",
+    en: "Phone number",
+    ru: "Номер телефона",
+  };
+
+  const yourInteresting: languageTypes = {
+    uz: "Qiziqishingiz haqida",
+    ru: "О вашем интересе",
+    en: "About your interest",
+  };
+
+  const yourInterestingMessage: languageTypes = {
+    uz: "Qiziqishingiz haqida qisqacha ma’lumot",
+    en: "Brief information about your interest",
+    ru: "Краткая информация о вашем интересе",
+  };
+
+  const send: languageTypes = {
+    uz: "Yuborish",
+    en: "Send",
+    ru: "Отправка",
+  };
+
   return (
-    <section className="form">
+    <section className="form" id="contacts">
+      <ToastContainer />
       <div className="container">
-        <div className="form__container bg-dark">
+        <div className="form__container bg-dark" data-aos="zoom-in">
           <div className="form__box">
-            <h2 className="form__box-title">
-              <span>Biz bilan</span> bog’lanish uchun
-            </h2>
-            <form className="form-registration">
+            {titleData[lang]}
+            <form className="form-registration" onSubmit={postFormData}>
               <div className="form-registration__user">
                 <label
                   htmlFor="full-name"
                   className="form-registration__user-label"
                 >
-                  Ism va Familiya
+                  {nameAndSureName[lang]}
                 </label>
                 <div className="form-registration__box">
                   <svg
@@ -36,37 +140,36 @@ const Form = () => {
                     required
                     type="text"
                     id="full-name"
-                    placeholder="Ismingizni kiriting"
+                    value={userName}
+                    placeholder={enterName[lang]}
                     className="form-registration__box-field"
+                    onChange={(e) => setUserName(e.target.value)}
                   />
                 </div>
               </div>
               <div className="form-registration__user">
                 <label
-                  className="form-registration__user-label"
                   htmlFor="phone"
+                  className="form-registration__user-label"
                 >
-                  Telefon raqam
+                  {phone[lang]}
                 </label>
-                <div className="form-registration__box">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M6.62 10.79C8.06 13.62 10.38 15.93 13.21 17.38L15.41 15.18C15.68 14.91 16.08 14.82 16.43 14.94C17.55 15.31 18.76 15.51 20 15.51C20.55 15.51 21 15.96 21 16.51V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z"
-                      fill="#F4A850"
-                    />
-                  </svg>
-                  <input
-                    required
-                    id="phone"
-                    type="text"
-                    placeholder="+998 99 123-45-67"
-                    className="form-registration__box-field"
+                <div className="form-registration__box form-registration__box--border">
+                  <PhoneInput
+                    country={"uz"}
+                    placeholder="+998"
+                    value={phoneNumber}
+                    inputProps={{
+                      name: "phone",
+                      required: true,
+                    }}
+                    inputStyle={{
+                      color: "white",
+                      backgroundColor: "transparent",
+                      width: "100%",
+                    }}
+                    inputClass="phone-input"
+                    onChange={(phone) => setPhoneNumber(phone)}
                   />
                 </div>
               </div>
@@ -74,25 +177,24 @@ const Form = () => {
                 className="form-registration__user-label"
                 htmlFor="interesting"
               >
-                Qiziqishingiz haqida
+                {yourInteresting[lang]}
               </label>
               <textarea
                 required
                 id="interesting"
+                value={userMessage}
                 className="form-registration__user-text"
-                placeholder="Qiziqishingiz haqida qisqacha ma’lumot"
+                onChange={(e) => setUserMessage(e.target.value)}
+                placeholder={yourInterestingMessage[lang]}
               ></textarea>
               <button className="form-registration-send" type="submit">
-                Yuborish
+                {send[lang]}
               </button>
             </form>
           </div>
           <div className="form__box">
             <Swiper
               loop
-              pagination={{
-                clickable: true,
-              }}
               autoplay={{
                 delay: 2000,
               }}
@@ -105,54 +207,7 @@ const Form = () => {
                   <img
                     width="635"
                     height="767"
-                    src={ContactImage}
-                    alt="UNITDEV slider image"
-                    className="form__slider-image"
-                  />
-                </li>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <li className="form__slider">
-                  <img
-                    width="635"
-                    height="767"
-                    src={ContactImage}
-                    alt="UNITDEV slider image"
-                    className="form__slider-image"
-                  />
-                </li>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <li className="form__slider">
-                  <img
-                    width="635"
-                    height="767"
-                    src={ContactImage}
-                    alt="UNITDEV slider image"
-                    className="form__slider-image"
-                  />
-                </li>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <li className="form__slider">
-                  <img
-                    width="635"
-                    height="767"
-                    src={ContactImage}
-                    alt="UNITDEV slider image"
-                    className="form__slider-image"
-                  />
-                </li>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <li className="form__slider">
-                  <img
-                    width="635"
-                    height="767"
+                    loading="lazy"
                     src={ContactImage}
                     alt="UNITDEV slider image"
                     className="form__slider-image"
