@@ -2,7 +2,7 @@ import { initialState } from "./state";
 import { types } from "./types";
 
 type actionType = {
-  [key: string]: unknown;
+  [key: string]: string;
 };
 
 const reducer = (state = initialState, action: actionType) => {
